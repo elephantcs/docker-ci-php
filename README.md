@@ -1,6 +1,6 @@
 # PHP CI Docker Image
 
-Available on Docker Hub: [elephantcs/ci-php](https://hub.docker.com/repository/docker/elephantcs/ci-php).
+Available on Docker Hub: [elephantcs/ci-php](https://hub.docker.com/r/elephantcs/ci-php/tags).
 
 ## Available tags
 - [`8.1` (_Dockerfile_)](https://github.com/elephantcs/docker-ci-php/blob/master/8.1/Dockerfile)
