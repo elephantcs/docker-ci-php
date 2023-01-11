@@ -35,6 +35,8 @@ Available on Docker Hub: [elephantcs/ci-php](https://hub.docker.com/r/elephantcs
 
 ## Release new versions
 
+(Make sure you're logged in with the correct account first `docker login`.)
+
 - Bump the version of the `apt-get install -y php8.x=....` line
   - Check the version string @ [launchpad.net](https://launchpad.net/~ondrej/+archive/ubuntu/php/+index?batch=75&direction=backwards&start=225)
   - Search for the correct PHP version
@@ -45,6 +47,8 @@ Available on Docker Hub: [elephantcs/ci-php](https://hub.docker.com/r/elephantcs
 - Push the new versions to Docker Hub
   - `docker push elephantcs/ci-php:8.x`
   - `docker push elephantcs/ci-php:8.x.x`
+
+For the lazy: run `versions.sh` to output a one-liner per PHP version that you can copy & run.
 
 ## Credits
 
