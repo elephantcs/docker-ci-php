@@ -3,6 +3,7 @@
 Available on Docker Hub: [elephantcs/ci-php](https://hub.docker.com/r/elephantcs/ci-php/tags).
 
 ## Available tags
+- [`8.2` (_Dockerfile_)](https://github.com/elephantcs/docker-ci-php/blob/master/8.2/Dockerfile)
 - [`8.1` (_Dockerfile_)](https://github.com/elephantcs/docker-ci-php/blob/master/8.1/Dockerfile)
 - [`8.0` (_Dockerfile_)](https://github.com/elephantcs/docker-ci-php/blob/master/8.0/Dockerfile)
 
