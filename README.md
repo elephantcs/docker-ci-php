@@ -48,7 +48,9 @@ Available on Docker Hub: [elephantcs/ci-php](https://hub.docker.com/r/elephantcs
   - `docker push elephantcs/ci-php:8.x`
   - `docker push elephantcs/ci-php:8.x.x`
 
-For the lazy: run `versions.sh` to output a one-liner per PHP version that you can copy & run.
+Make sure to add `--platform=linux/amd64` to the build command when running on M1.
+
+For the lazy: run `versions.sh` to output a one-liner per PHP version that you can copy & run. 
 
 ## Credits
 

@@ -13,5 +13,5 @@ for PHP_VERSION_DIR in *; do
   fi
 
   echo "=== Commands for PHP ${PHP_VERSION}";
-  echo "cd ${PHP_VERSION} && docker build -t elephantcs/ci-php:${PHP_VERSION} -t elephantcs/ci-php:${EXACT_PHP_VERSION} . && docker push elephantcs/ci-php:${PHP_VERSION} && docker push elephantcs/ci-php:${EXACT_PHP_VERSION}"
+  echo "cd ${PHP_VERSION} && docker build --platform=linux/amd64 -t elephantcs/ci-php:${PHP_VERSION} -t elephantcs/ci-php:${EXACT_PHP_VERSION} . && docker push elephantcs/ci-php:${PHP_VERSION} && docker push elephantcs/ci-php:${EXACT_PHP_VERSION}"
 done
