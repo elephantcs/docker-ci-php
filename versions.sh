@@ -1,3 +1,15 @@
+
+function _output_build() {
+  PHP_VERSION=$1
+  EXACT_PHP_VERSION=$2
+  DOCKERFILE=$3
+  VERSION_SUFFIX=$4
+
+  echo "docker build --platform=linux/amd64 -t elephantcs/ci-php:${PHP_VERSION}${VERSION_SUFFIX} -t elephantcs/ci-php:${EXACT_PHP_VERSION}${VERSION_SUFFIX} - < ${PHP_VERSION}/${DOCKERFILE} \\"
+  echo "  && docker push elephantcs/ci-php:${PHP_VERSION}${VERSION_SUFFIX} \\"
+  echo "  && docker push elephantcs/ci-php:${EXACT_PHP_VERSION}${VERSION_SUFFIX}"
+}
+
 for PHP_VERSION_DIR in *; do
   PHP_VERSION=$(basename "$PHP_VERSION_DIR")
 
@@ -12,6 +24,18 @@ for PHP_VERSION_DIR in *; do
     continue;
   fi
 
-  echo "=== Commands for PHP ${PHP_VERSION}";
-  echo "cd ${PHP_VERSION} && docker build --platform=linux/amd64 -t elephantcs/ci-php:${PHP_VERSION} -t elephantcs/ci-php:${EXACT_PHP_VERSION} . && docker push elephantcs/ci-php:${PHP_VERSION} && docker push elephantcs/ci-php:${EXACT_PHP_VERSION}"
+  echo "# === Commands for PHP ${PHP_VERSION}";
+  _output_build "$PHP_VERSION" "$EXACT_PHP_VERSION" "Dockerfile" ""
+
+  # Find special versions
+  for DF in ./"${PHP_VERSION}"/*
+  do
+    if [[ "$DF" =~ Node[0-9]+\.Dockerfile ]]; then
+      NODE_VERSION=$(echo "$DF" | sed -E "s~.+Node([0-9]+).Dockerfile~\1~g")
+      echo "# => Node v${NODE_VERSION}"
+      _output_build "$PHP_VERSION" "$EXACT_PHP_VERSION" "Node${NODE_VERSION}.Dockerfile" "-node${NODE_VERSION}"
+    fi
+  done
+
+
 done
