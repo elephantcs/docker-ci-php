@@ -52,6 +52,8 @@ Make sure to add `--platform=linux/amd64` to the build command when running on M
 
 For the lazy: run `versions.sh` to output a one-liner per PHP version that you can copy & run. 
 
+If you've modified all PHP versions: `./versions.sh > run.sh && chmod +x run.sh && ./run.sh && rm run.sh`
+
 ## Credits
 
 Originally forked from [vyuldashev/docker-ci-php-node](https://github.com/vyuldashev/docker-ci-php-node).
