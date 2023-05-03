@@ -50,9 +50,17 @@ Available on Docker Hub: [elephantcs/ci-php](https://hub.docker.com/r/elephantcs
 
 Make sure to add `--platform=linux/amd64` to the build command when running on M1.
 
-For the lazy: run `versions.sh` to output a one-liner per PHP version that you can copy & run. 
 
-If you've modified all PHP versions: `./versions.sh > run.sh && chmod +x run.sh && ./run.sh && rm run.sh`
+### Lazy? One-liners:
+
+- Updating the version in the `Dockerfile`s
+  - Run `php ./php-versions.php | grep gsed` to output a one-liner per PHP version to update the version with gsed
+  - If you want to modify all PHP versions: `php ./php-versions.php | bash`
+  - Make sure to commit the changes (1 commit per php version) after changing the version
+- Publishing the new versions to Docker
+  - run `versions.sh` to output a one-liner per PHP version that you can copy & run.
+  - If you've modified all PHP versions: `./versions.sh | bash`
+
 
 ## Credits
 
