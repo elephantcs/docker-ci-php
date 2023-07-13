@@ -5,6 +5,7 @@ function _output_build() {
   DOCKERFILE=$3
   VERSION_SUFFIX=$4
 
+  echo "echo 'Publishing version: ${PHP_VERSION}${VERSION_SUFFIX}'"
   echo "docker build --platform=linux/amd64 -t elephantcs/ci-php:${PHP_VERSION}${VERSION_SUFFIX} -t elephantcs/ci-php:${EXACT_PHP_VERSION}${VERSION_SUFFIX} - < ${PHP_VERSION}/${DOCKERFILE} \\"
   echo "  && docker push elephantcs/ci-php:${PHP_VERSION}${VERSION_SUFFIX} \\"
   echo "  && docker push elephantcs/ci-php:${EXACT_PHP_VERSION}${VERSION_SUFFIX}"
