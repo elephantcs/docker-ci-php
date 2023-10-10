@@ -35,7 +35,7 @@ RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 RUN LC_ALL=en_US.UTF-8 \
     add-apt-repository ppa:ondrej/php && \
     apt-get update && \
-    apt-get install -y php8.0=1:8.0.28-1+ubuntu20.04.1+deb.sury.org+1
+    apt-get install -y php8.0=1:8.0.30-2+ubuntu20.04.1+deb.sury.org+1
 RUN apt-get install -y \
     php8.0-curl \
     php8.0-gd \
