@@ -1,3 +1,7 @@
+# Store possible args
+TOTAL_ARGS=$#
+INCLUDE_VERSIONS=( "$@" )
+
 
 function _output_build() {
   PHP_VERSION=$1
@@ -17,6 +21,14 @@ for PHP_VERSION_DIR in *; do
   # Check if it's a valid PHP version
   if ! [[ "$PHP_VERSION" =~ ^[7,8]\.[0-9]$ ]]; then
     continue;
+  fi
+
+  # Check if we should run commands for this version
+  if [[ "$TOTAL_ARGS" -gt 0 ]]; then
+    if ! ( echo "${INCLUDE_VERSIONS[@]}" | grep -q "$PHP_VERSION" ); then
+       echo "# Skipping version, not included in script args: ${PHP_VERSION}";
+       continue;
+    fi
   fi
 
   EXACT_PHP_VERSION=$(grep "apt-get install -y php${PHP_VERSION}=" "${PHP_VERSION}/Dockerfile" | sed -E "s~.+(${PHP_VERSION}.[0-9]+).+~\1~g")

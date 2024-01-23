@@ -60,6 +60,7 @@ Make sure to add `--platform=linux/amd64` to the build command when running on M
 - Publishing the new versions to Docker
   - run `versions.sh` to output a one-liner per PHP version that you can copy & run.
   - If you've modified all PHP versions: `./versions.sh | bash`
+  - Or specific versions: `./versions.sh 8.1 8.2 | bash`
 
 
 ## Credits
