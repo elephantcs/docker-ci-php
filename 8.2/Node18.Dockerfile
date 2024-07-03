@@ -2,7 +2,7 @@ FROM elephantcs/ci-php:8.2
 
 # Fetch & Install Node & NPM
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 18.19.0
+ENV NODE_VERSION 18.20.3
 
 RUN mkdir $NVM_DIR
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
