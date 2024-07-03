@@ -2,7 +2,7 @@
 /**
  * Small script that fetches the latest versions in the Launchpad
  */
-$file = @file_get_contents( 'https://launchpad.net/~ondrej/+archive/ubuntu/php/+index?batch=75&direction=backwards&start=225' );
+$file = @file_get_contents( 'https://launchpad.net/~ondrej/+archive/ubuntu/php/+index?batch=75&direction=backwards&memo=375&start=300' );
 if ( ! preg_match_all( '~<tr[^>]+>(?:.|\n)+</tr>~imU', $file, $rows, PREG_SET_ORDER ) ) {
 	echo 'echo "Failed to fetch versions!"';
 	exit( 1 );
